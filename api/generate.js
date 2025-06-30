@@ -17,16 +17,7 @@ export default async function handler(request, response) {
   const GEMINI_API_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${GEMINI_API_KEY}`;
 
   try {
-    const prompt = `あなたは女性向けのブランドコンサルタントです。以下のコンセプトに基づいて、デザイン提案、キャッチコピー提案、ボディコピーをJSON形式で生成してください。JSON形式以外は一切出力しないでください。
-
-コンセプト: ${concept}
-
-出力形式:
-{
-  "design_proposal": "[デザインに関する具体的な提案]",
-  "catchphrase_proposals": ["[キャッチコピー1]", "[キャッチコピー2]", "[キャッチコピー3]"],
-  "body_copy": "[詳細なボディコピー]"
-}`;
+    const prompt = `あなたは女性向けのブランドコンサルタントです。以下のコンセプトに基づいて、デザイン提案、キャッチコピー提案、ボディコピーをJSON形式で生成してください。JSON形式のオブジェクトのみを出力し、それ以外のテキストや説明は一切含めないでください。また、JSON内の文字列はすべて適切にエスケープしてください（例: ダブルクォーテーションは \"、改行は \n）。\n\nコンセプト: ${concept}\n\n出力形式:\n{\n  "design_proposal": "[デザインに関する具体的な提案]",\n  "catchphrase_proposals": "[キャッチコピー1]", "[キャッチコピー2]", "[キャッチコピー3]"],\n  "body_copy": "[詳細なボディコピー]"\n}`;
 
     const geminiResponse = await fetch(GEMINI_API_ENDPOINT, {
       method: 'POST',
