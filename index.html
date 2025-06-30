@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伝わるLPサポーター - AI-Powered Branding Assistant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>伝わるLPサポーター</h1>
+        <p>〜お客様がファンになるLPを、あなたと一緒に〜</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="input-section">
+                <h2>コンセプト入力</h2>
+                <p>あなたの事業やサービスのコンセプト、ターゲット、提供したい価値などを自由に入力してください。</p>
+                <form id="generator-form">
+                    <textarea id="concept-input" placeholder="例：20代後半〜30代の働く女性向けの、オーガニック素材にこだわった手作りアクセサリー。日常に小さな特別感をプラスする。"></textarea>
+                    <button type="submit">提案を生成する</button>
+                </form>
+            </section>
+
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Geminiがあなたのための提案を考えています...</p>
+            </div>
+
+            <section id="output-section" class="hidden">
+                <h2>AIからのご提案</h2>
+                <div class="result-box">
+                    <h3><span class="icon">🎨</span>デザイン提案</h3>
+                    <p id="design-output"></p>
+                </div>
+                <div class="result-box">
+                    <h3><span class="icon">✨</span>キャッチコピー提案</h3>
+                    <div id="catchphrase-output"></div>
+                </div>
+                <div class="result-box">
+                    <h3><span class="icon">📝</span>ボディコピー</h3>
+                    <textarea id="body-copy-output" readonly></textarea>
+                    <button id="copy-button">コピーする</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Bruiye, LPsupport. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
